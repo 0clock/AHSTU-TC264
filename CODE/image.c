@@ -7,7 +7,7 @@ float pixelPro[GrayScale];
 uint8 image[MT9V03X_H][MT9V03X_W];
 uint8 value;
 int midle_line[MT9V03X_H]={0};
-int deltax=10;
+int deltax=0;
 
 void image_binary()
 {
