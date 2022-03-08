@@ -7,12 +7,12 @@ float pixelPro[GrayScale];
 uint8 image[MT9V03X_H][MT9V03X_W];
 uint8 value;
 int midle_line[MT9V03X_H]={0};
-int deltax=0;
+int deltax=10;
 
 void image_binary()
 {
     value = my_adapt_threshold(mt9v03x_image[0],MT9V03X_W,MT9V03X_H);
-    /*********************¹Ì¶¨ãÐÖµ*********************/
+    /*********************ï¿½Ì¶ï¿½ï¿½ï¿½Öµ*********************/
     for(int i=0; i<MT9V03X_H; i++)
     {
         for(int j=0; j<MT9V03X_W; j++)
@@ -25,7 +25,7 @@ void image_binary()
     }
 }
 
-/**********************´ó½ò·¨*************************/
+/**********************ï¿½ï¿½ï¿½*************************/
 uint8 my_adapt_threshold(uint8 *image, uint16 col,uint16 row)
 {
     uint16 width = col;
@@ -79,7 +79,7 @@ uint8 my_adapt_threshold(uint8 *image, uint16 col,uint16 row)
 
 }
 
-/**************************Ñ°Ïß*************************/
+/**************************Ñ°ï¿½ï¿½*************************/
 void xun()
 {
     int i=0;
