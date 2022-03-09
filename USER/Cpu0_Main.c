@@ -40,6 +40,7 @@ int core0_main(void)
 	mt9v03x_init();
 	Motor_init();
 	Steering_init();
+
 	gpt12_init(GPT12_T6, GPT12_T6INA_P20_3, GPT12_T6EUDA_P20_0);
 
 	systick_delay(STM0,1000);
@@ -68,9 +69,8 @@ int core0_main(void)
             gpt12_clear(GPT12_T6);
             ips200_showint16(0,200,speed);
         }
-
-
 	}
+
 }
 
 #pragma section all restore

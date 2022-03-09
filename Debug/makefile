@@ -125,23 +125,37 @@ endif
 
 -include ../makefile.defs
 
+OPTIONAL_TOOL_DEPS := \
+$(wildcard ../makefile.defs) \
+$(wildcard ../makefile.init) \
+$(wildcard ../makefile.targets) \
+
+
+BUILD_ARTIFACT_NAME := Seekfree_TC264_Opensource_Library
+BUILD_ARTIFACT_EXTENSION := elf
+BUILD_ARTIFACT_PREFIX :=
+BUILD_ARTIFACT := $(BUILD_ARTIFACT_PREFIX)$(BUILD_ARTIFACT_NAME)$(if $(BUILD_ARTIFACT_EXTENSION),.$(BUILD_ARTIFACT_EXTENSION),)
+
 # Add inputs and outputs from these tool invocations to the build variables 
 SECONDARY_SIZE += \
 Seekfree_TC264_Opensource_Library.siz \
 
 
 # All Target
-all: Seekfree_TC264_Opensource_Library.elf secondary-outputs
+all: main-build
+
+# Main-build Target
+main-build: Seekfree_TC264_Opensource_Library.elf secondary-outputs
 
 # Tool invocations
-Seekfree_TC264_Opensource_Library.elf: $(OBJS)
+Seekfree_TC264_Opensource_Library.elf: $(OBJS) makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Building target: $@'
 	@echo 'Invoking: TASKING Linker'
 	cctc -lrt -lfp_fpu -lcs_fpu  -Wl-Oc -Wl-OL -Wl-Ot -Wl-Ox -Wl-Oy -Wl--map-file="Seekfree_TC264_Opensource_Library.map" -Wl-mc -Wl-mf -Wl-mi -Wl-mk -Wl-ml -Wl-mm -Wl-md -Wl-mr -Wl-mu --no-warnings= -Wl--error-limit=42 --exceptions --strict --anachronisms --force-c++ -Ctc26xb   -o"Seekfree_TC264_Opensource_Library.elf" -Wl-o"Seekfree_TC264_Opensource_Library.hex:IHEX" --lsl-core=vtc  --lsl-file=../Lcf_Tasking_Tricore_Tc.lsl $(OBJS)
 	@echo 'Finished building target: $@'
 	@echo ' '
 
-Seekfree_TC264_Opensource_Library.siz: Seekfree_TC264_Opensource_Library.elf
+Seekfree_TC264_Opensource_Library.siz: Seekfree_TC264_Opensource_Library.elf makefile objects.mk $(OPTIONAL_TOOL_DEPS)
 	@echo 'Invoking: Print Size'
 	elfsize  "Seekfree_TC264_Opensource_Library.elf"
 	@echo 'Finished building: $@'
@@ -154,6 +168,6 @@ clean:
 
 secondary-outputs: $(SECONDARY_SIZE)
 
-.PHONY: all clean dependents
+.PHONY: all clean dependents main-build
 
 -include ../makefile.targets

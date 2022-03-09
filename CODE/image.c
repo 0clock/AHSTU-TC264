@@ -12,7 +12,6 @@ int deltax=0;
 void image_binary()
 {
     value = my_adapt_threshold(mt9v03x_image[0],MT9V03X_W,MT9V03X_H);
-    /*********************πÃ∂®„–÷µ*********************/
     for(int i=0; i<MT9V03X_H; i++)
     {
         for(int j=0; j<MT9V03X_W; j++)
