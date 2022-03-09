@@ -1,6 +1,6 @@
 #include "motor.h"
 
-int16 motor_duty;
+int16 motor_duty=0;
 
 void Motor_init()
 {
