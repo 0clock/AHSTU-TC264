@@ -35,16 +35,15 @@ int core0_main(void)
 {
 	get_clk();//获取时钟频率  务必保留
 	//用户在此处调用各种初始化函数等
-	ips200_init();
-	ips200_showstr(0,0,"camera init");
 	mt9v03x_init();
 	Motor_init();
 	Steering_init();
 
+	Init_TFT();
+
 	gpt12_init(GPT12_T6, GPT12_T6INA_P20_3, GPT12_T6EUDA_P20_0);
 
 	systick_delay(STM0,1000);
-
     //等待所有核心初始化完毕
 	IfxCpu_emitEvent(&g_cpuSyncEvent);
 	IfxCpu_waitEvent(&g_cpuSyncEvent, 0xFFFF);
@@ -61,16 +60,12 @@ int core0_main(void)
 	        Ctr_Motor_speed();
 	        Ctr_Steering_direction();
             image_binary();
-            //ips200_displayimage032(image[0], MT9V03X_W, MT9V03X_H);
-            ips200_showint32(0,100,deltax,3);
             xun();
             mt9v03x_finish_flag=0;
             speed = gpt12_get(GPT12_T6);
             gpt12_clear(GPT12_T6);
-            ips200_showint16(0,200,speed);
         }
 	}
-
 }
 
 #pragma section all restore

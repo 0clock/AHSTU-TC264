@@ -4,22 +4,30 @@
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS += \
+../CODE/TFT_GUI.c \
 ../CODE/image.c \
+../CODE/key.c \
 ../CODE/motor.c \
 ../CODE/steering.c 
 
 OBJS += \
+./CODE/TFT_GUI.o \
 ./CODE/image.o \
+./CODE/key.o \
 ./CODE/motor.o \
 ./CODE/steering.o 
 
 COMPILED_SRCS += \
+./CODE/TFT_GUI.src \
 ./CODE/image.src \
+./CODE/key.src \
 ./CODE/motor.src \
 ./CODE/steering.src 
 
 C_DEPS += \
+./CODE/TFT_GUI.d \
 ./CODE/image.d \
+./CODE/key.d \
 ./CODE/motor.d \
 ./CODE/steering.d 
 

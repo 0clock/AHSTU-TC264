@@ -185,3 +185,5 @@ void gpt12_clear(GPTN_enum gptn)
 		case GPT12_T6: IfxGpt12_T6_setTimerValue(&MODULE_GPT120, 0); break;
 	}
 }
+
+

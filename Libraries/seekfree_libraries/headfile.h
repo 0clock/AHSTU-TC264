@@ -71,6 +71,8 @@
 #include "image.h"
 #include "motor.h"
 #include "steering.h"
+#include "key.h"
+#include "TFT_GUI.h"
 
 #endif
 
