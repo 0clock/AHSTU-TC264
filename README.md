@@ -49,7 +49,7 @@ int32 PID_Increase(Error *sptr, PID *pid, int32 NowPlace, int32 Point)
 }
 ```
 
-3-9 改变计划，先搞定定时器中断部分，打算增加按键和参数可调功能（未完成）
+3-9 改变计划，先搞定定时器中断部分，打算增加按键和参数可调功能（未完成）学会了中断怎么用。
 
 ```
 IFX_INTERRUPT(cc61_pit_ch0_isr, 0, CCU6_1_CH0_ISR_PRIORITY)
