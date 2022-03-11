@@ -64,6 +64,7 @@ void Ctr_Steering_direction()
         kp=3;
         kd=5;
     }*/
+
     last_deltax=last_deltax1;
     last_deltax1 = deltax;
 

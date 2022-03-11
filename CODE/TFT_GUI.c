@@ -33,6 +33,9 @@ void Update_TFT_per16ms(void)
             Now_speed = gpt12_get(GPT12_T6);
             gpt12_clear(GPT12_T6);
             ips200_showint16(0,200,Now_speed);
+            ips200_showint16(0,300,Point_motor_Speed);
+            ips200_showint16(0,400,Increase);
+
             break;
         case Camera_Page:
             ips200_displayimage032_zoom1(image[0],MT9V03X_W, MT9V03X_H, 0, 0, MT9V03X_W+52, MT9V03X_H+33);

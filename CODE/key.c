@@ -17,15 +17,17 @@ void Init_Key(void){
 }
 
 void Key1_Action(){
-
+    Point_motor_Speed+=50;
+    TFT_Page_Active_Flag=TRUE;
 }
 
 void Key2_Action(){
-
+    Point_motor_Speed-=50;
+    TFT_Page_Active_Flag=TRUE;
 }
 
 void Key3_Action(){
-
+    TFT_Page_Active_Flag=TRUE;
 }
 
 void Key4_Action(){
