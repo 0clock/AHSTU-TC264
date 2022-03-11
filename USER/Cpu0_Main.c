@@ -62,8 +62,7 @@ int core0_main(void)
             image_binary();
             xun();
             mt9v03x_finish_flag=0;
-            speed = gpt12_get(GPT12_T6);
-            gpt12_clear(GPT12_T6);
+
         }
 	}
 }
