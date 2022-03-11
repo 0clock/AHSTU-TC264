@@ -30,7 +30,8 @@
 
 //对于TC系列默认是不支持中断嵌套的，希望支持中断嵌套需要在中断内使用enableInterrupts();来开启中断嵌套
 //简单点说实际上进入中断后TC系列的硬件自动调用了disableInterrupts();来拒绝响应任何的中断，因此需要我们自己手动调用enableInterrupts();来开启中断的响应。
-int16 speed;
+
+int flag=0;
 int core0_main(void)
 {
 	get_clk();//获取时钟频率  务必保留
@@ -40,6 +41,8 @@ int core0_main(void)
 	Steering_init();
 
 	Init_TFT();
+	Init_Key();
+	pit_interrupt_ms(CCU6_1, PIT_CH0, 10);//中断定时16ms
 
 	gpt12_init(GPT12_T6, GPT12_T6INA_P20_3, GPT12_T6EUDA_P20_0);
 
@@ -55,18 +58,12 @@ int core0_main(void)
 	while (TRUE)
 	{
 		//用户在此处编写任务代码
-	    if(mt9v03x_finish_flag)
-        {
-	        Ctr_Motor_speed();
-	        Ctr_Steering_direction();
-            image_binary();
-            xun();
-            mt9v03x_finish_flag=0;
-            speed = gpt12_get(GPT12_T6);
-            gpt12_clear(GPT12_T6);
-        }
+
 	}
 }
+
+
+
 
 #pragma section all restore
 
