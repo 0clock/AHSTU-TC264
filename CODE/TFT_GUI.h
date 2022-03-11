@@ -8,6 +8,17 @@
 #ifndef CODE_TFT_GUI_H_
 #define CODE_TFT_GUI_H_
 
+#include "headfile.h"
+
+enum TFT_Page
+{
+    Camera_Page,
+    Setting_Page,
+};
+extern enum TFT_Page Page_Number;
+extern int8 TFT_Page_Active_Flag;
+
+
 void Init_TFT(void);
 void Update_TFT_per16ms(void);
 

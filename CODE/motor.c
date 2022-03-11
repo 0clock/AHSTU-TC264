@@ -14,7 +14,7 @@ void Motor_init()
 
 void Ctr_Motor_speed()
 {
-    motor_duty = 1500;
+    motor_duty = 1850;
     pwm_duty(Motor, motor_duty);
 }
 

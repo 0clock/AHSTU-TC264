@@ -39,8 +39,13 @@ void core1_main(void)
     enableInterrupts();
     while (TRUE)
     {
-		//用户在此处编写任务代码
-
+        //用户在此处编写任务代码
+        if(mt9v03x_finish_flag)
+        {
+            mt9v03x_finish_flag=0;
+            image_binary();
+            xun();
+        }
     }
 }
 
