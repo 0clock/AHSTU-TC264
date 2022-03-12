@@ -17,7 +17,7 @@ enum TFT_Page
 };
 extern enum TFT_Page Page_Number;
 extern int8 TFT_Page_Active_Flag;
-extern int16 Now_speed;
+
 
 void Init_TFT(void);
 void Update_TFT_per16ms(void);

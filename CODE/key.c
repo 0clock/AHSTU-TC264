@@ -17,13 +17,13 @@ void Init_Key(void){
 }
 
 void Key1_Action(){
-    Point_motor_Speed+=50;
-    TFT_Page_Active_Flag=TRUE;
+    Point_motor_Speed+=10;
+    //TFT_Page_Active_Flag=TRUE;
 }
 
 void Key2_Action(){
-    Point_motor_Speed-=50;
-    TFT_Page_Active_Flag=TRUE;
+    Point_motor_Speed-=10;
+    //TFT_Page_Active_Flag=TRUE;
 }
 
 void Key3_Action(){
@@ -77,7 +77,7 @@ void Check_Key_per10ms(void){
     }
 
     //KEY3扫描
-    if (gpio_get(KEY2_GPIO)==0) {
+    if (gpio_get(KEY3_GPIO)==0) {
         counter[Key3]++;    //消抖，个人理解
         if (counter[Key3]>=(status[Key3]==0?STATUS0_COUNTER_MAX:STATUS1_COUNTER_MAX)) {
             //如果status（状态）=0则后面是STATUS0，否则为STATUS1
@@ -86,12 +86,12 @@ void Check_Key_per10ms(void){
             counter[Key3] = 0;
         }
     } else {
-        status[Key2] = 0;
-        counter[Key2] = 0;
+        status[Key3] = 0;
+        counter[Key3] = 0;
     }
 
     //KEY4扫描
-    if (gpio_get(KEY2_GPIO)==0) {
+    if (gpio_get(KEY4_GPIO)==0) {
         counter[Key4]++;    //消抖，个人理解
         if (counter[Key4]>=(status[Key4]==0?STATUS0_COUNTER_MAX:STATUS1_COUNTER_MAX)) {
             //如果status（状态）=0则后面是STATUS0，否则为STATUS1
@@ -100,8 +100,8 @@ void Check_Key_per10ms(void){
             counter[Key4] = 0;
         }
     } else {
-        status[Key2] = 0;
-        counter[Key2] = 0;
+        status[Key4] = 0;
+        counter[Key4] = 0;
     }
     //执行动作
     if (trigger[Key1])

@@ -13,7 +13,10 @@
 extern int16 motor_duty;
 extern int16 Point_motor_Speed;
 extern int32 Increase;
+extern int16 Now_speed;
 
+void Get_Motor_Init(void);
+void Get_Motor_Speed(void);
 void Motor_init(void);
 void Ctr_Motor_speed(void);
 

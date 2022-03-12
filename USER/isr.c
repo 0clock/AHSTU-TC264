@@ -51,6 +51,7 @@ IFX_INTERRUPT(cc61_pit_ch1_isr, 0, CCU6_1_CH1_ISR_PRIORITY)
 {
 	enableInterrupts();//¿ªÆôÖÐ¶ÏÇ¶Ì×
 	PIT_CLEAR_FLAG(CCU6_1, PIT_CH1);
+	Get_Motor_Speed();
 }
 
 

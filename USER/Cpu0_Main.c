@@ -44,7 +44,7 @@ int core0_main(void)
 	Init_Key();
 	pit_interrupt_ms(CCU6_1, PIT_CH0, 10);//中断定时16ms
 
-	gpt12_init(GPT12_T6, GPT12_T6INA_P20_3, GPT12_T6EUDA_P20_0);
+	Get_Motor_Init();
 
 	systick_delay(STM0,1000);
     //等待所有核心初始化完毕

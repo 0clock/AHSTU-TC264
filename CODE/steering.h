@@ -9,6 +9,8 @@
 #define Control_right_limit 679
 #define Control_middle 779
 
+extern int duty;
+
 void Steering_init(void);
 void Ctr_Steering_direction(void);
 
